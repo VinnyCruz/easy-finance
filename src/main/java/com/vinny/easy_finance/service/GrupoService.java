@@ -20,13 +20,14 @@ public class GrupoService {
 
     public GrupoCadastradoDto cadastrarNovoGrupo(CadastroGrupoDto cadastroGrupoDto) {
         Grupo grupo = mapper.from(cadastroGrupoDto);
-        GrupoEntity entity = mapper.from(grupo);
-        repository.save(entity);
-        return mapper.from(entity);
+        GrupoEntity entidade = mapper.from(grupo);
+        repository.save(entidade);
+        return mapper.from(entidade);
     }
 
-    public GrupoEntity buscarGrupoPorId(UUID grupoId) {
-        return repository.findById(grupoId)
+    public Grupo buscarGrupoPorId(UUID grupoId) {
+        GrupoEntity entidade = repository.findById(grupoId)
                 .orElseThrow(() -> new GroupNotFoundException("Grupo não encontrado para o ID: " + grupoId));
+        return mapper.fromEntity(entidade);
     }
 }

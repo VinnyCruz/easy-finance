@@ -11,4 +11,6 @@ public interface GrupoMapper {
     Grupo from(CadastroGrupoDto cadastroGrupoDto);
     GrupoEntity from(Grupo grupo);
     GrupoCadastradoDto from(GrupoEntity grupoEntity);
+    Grupo fromEntity(GrupoEntity grupoEntity);
+
 }
