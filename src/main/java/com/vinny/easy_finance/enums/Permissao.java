@@ -1,6 +1,6 @@
 package com.vinny.easy_finance.enums;
 
-public enum Role {
+public enum Permissao {
     ADMIN,
     USER
 }

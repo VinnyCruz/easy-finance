@@ -1,6 +1,6 @@
 package com.vinny.easy_finance.model;
 
-import com.vinny.easy_finance.enums.Role;
+import com.vinny.easy_finance.enums.Permissao;
 import lombok.*;
 
 import java.util.List;
@@ -9,7 +9,6 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Builder
 public class Usuario {
     private UUID id;
@@ -18,6 +17,14 @@ public class Usuario {
     private String senha;
     private List<Compra> compras;
     private Grupo grupo;
-    private Role role;
+    private Permissao permissao;
+
+    public Usuario(Grupo grupo, String nome, String email, String senha, Permissao permissao) {
+        this.grupo = grupo;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.permissao = permissao;
+    }
 }
 
