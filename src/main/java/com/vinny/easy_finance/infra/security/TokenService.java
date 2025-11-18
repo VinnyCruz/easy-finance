@@ -5,7 +5,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.vinny.easy_finance.exception.InvalidJWTAuthenticationException;
-import com.vinny.easy_finance.repository.entity.UsuarioEntity;
+import com.vinny.easy_finance.infrastructure.repository.entity.UsuarioEntity;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

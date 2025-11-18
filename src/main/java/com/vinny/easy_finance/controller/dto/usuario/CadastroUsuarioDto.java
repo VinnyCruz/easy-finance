@@ -7,6 +7,5 @@ import lombok.Builder;
 public record CadastroUsuarioDto(
         String nome,
         String email,
-        String senha,
-        Permissao permissao
+        String senha
 ){}

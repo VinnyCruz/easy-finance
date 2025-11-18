@@ -1,4 +1,4 @@
-package com.vinny.easy_finance.repository.entity;
+package com.vinny.easy_finance.infrastructure.repository.entity;
 
 import com.vinny.easy_finance.enums.Permissao;
 import jakarta.persistence.*;

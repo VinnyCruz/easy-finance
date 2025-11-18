@@ -1,4 +1,4 @@
-package com.vinny.easy_finance.model;
+package com.vinny.easy_finance.domain;
 
 import com.vinny.easy_finance.enums.FormaPagamento;
 import lombok.*;

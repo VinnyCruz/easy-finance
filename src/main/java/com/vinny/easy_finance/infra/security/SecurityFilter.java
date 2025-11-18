@@ -1,6 +1,6 @@
 package com.vinny.easy_finance.infra.security;
 
-import com.vinny.easy_finance.repository.jpa.UsuarioRepository;
+import com.vinny.easy_finance.infrastructure.repository.jpa.UsuarioRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

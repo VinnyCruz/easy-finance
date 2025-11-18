@@ -1,6 +1,5 @@
-package com.vinny.easy_finance.model;
+package com.vinny.easy_finance.domain;
 
-import com.vinny.easy_finance.enums.StatusCompra;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -11,12 +10,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Builder
-public class Compra {
+public class Parcela {
     private UUID id;
     private BigDecimal valor;
-    private String descricao;
-    private StatusCompra status;
-    private Usuario usuario;
+    private Integer numero;
     private Pagamento pagamento;
 }
 

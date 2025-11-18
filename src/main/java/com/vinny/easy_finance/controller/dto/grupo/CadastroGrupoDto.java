@@ -4,7 +4,5 @@ import lombok.Builder;
 
 @Builder
 public record CadastroGrupoDto(
-        String grupo,
-        String email,
-        String senha
+        String grupo
 ){}

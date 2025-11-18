@@ -1,6 +1,6 @@
-package com.vinny.easy_finance.repository.jpa;
+package com.vinny.easy_finance.infrastructure.repository.jpa;
 
-import com.vinny.easy_finance.repository.entity.GrupoEntity;
+import com.vinny.easy_finance.infrastructure.repository.entity.GrupoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

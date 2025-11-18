@@ -1,4 +1,4 @@
-package com.vinny.easy_finance.repository.entity;
+package com.vinny.easy_finance.infrastructure.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
