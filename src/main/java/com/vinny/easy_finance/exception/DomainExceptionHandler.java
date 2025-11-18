@@ -25,7 +25,7 @@ public class DomainExceptionHandler {
         error.setTitle(domainException.getTitle());
         error.setDetail(domainException.getDetail());
         error.setStatus(HttpStatus.valueOf(domainException.getStatus().value()));
-        error.setType(URI.create(""));
+        error.setType(URI.create("about:blank"));
         error.setInstance(URI.create(request.getRequestURI()));
 
         return ResponseEntity.status(domainException.getStatus())

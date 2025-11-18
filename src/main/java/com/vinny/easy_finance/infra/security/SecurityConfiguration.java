@@ -20,6 +20,7 @@ public class SecurityConfiguration {
     private final SecurityFilter securityFilter;
     private final UsuarioDetailsService usuarioDetailsService;
     private final PasswordEncoder passwordEncoder;
+    private final CustomAuthEntryPoint customAuthEntryPoint;
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
@@ -34,31 +35,46 @@ public class SecurityConfiguration {
         return authConfig.getAuthenticationManager();
     }
 
+//    @Bean
+//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//
+//        http.csrf(csrf -> csrf.disable());
+//
+//        http.headers(headers -> headers.frameOptions(frame -> frame.disable()));
+//
+//        http.sessionManagement(session ->
+//                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//        );
+//
+//        http.authorizeHttpRequests(auth -> auth
+//                .requestMatchers("/v1/usuarios/login").permitAll()
+//                .requestMatchers("/v1/usuarios").permitAll()
+//                .requestMatchers("/h2-console/**").permitAll() // libera H2 console
+//                .anyRequest().authenticated()
+//        );
+//
+//        http.authenticationProvider(authenticationProvider());
+//
+//        http.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
+//
+//        return http.build();
+//    }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        http.csrf(csrf -> csrf.disable());
-
-        http.headers(headers -> headers.frameOptions(frame -> frame.disable()));
-
-        http.sessionManagement(session ->
-                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        http
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .anyRequest().permitAll()
+                )
+                .headers(headers -> headers.frameOptions(frame -> frame.disable()));
+        http.exceptionHandling(ex ->
+                ex.authenticationEntryPoint(customAuthEntryPoint)
         );
-
-        http.authorizeHttpRequests(auth -> auth
-                .requestMatchers("/v1/usuarios/login").permitAll()
-                .requestMatchers("/v1/usuarios").permitAll()
-                .requestMatchers("/h2-console/**").permitAll() // libera H2 console
-                .anyRequest().authenticated()
-        );
-
-        http.authenticationProvider(authenticationProvider());
-
-        http.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
-
 }
 
 
